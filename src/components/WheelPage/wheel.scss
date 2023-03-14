@@ -1,0 +1,42 @@
+.wheel-container {
+    width: 100%;
+    display: flex;
+    min-height: 100vh;
+    background: #6e4141;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background:linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,1)), url('../../asset/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+  
+    button {
+      margin-top: 50px;
+      background: orangered;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+  }
+  .gift-name {
+    text-align: center;
+    padding: 40px;
+    text-transform: uppercase;
+  }
+  .unlucky-msg {
+    text-align: center;
+    padding: 40px;
+    padding-top: 20px;
+  }
+  .ant-drawer-body, .ant-drawer-header {
+    background: #222020;
+  }
+  .meme {
+    width: 250px;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: block;
+    border-radius: 4px;
+  }
