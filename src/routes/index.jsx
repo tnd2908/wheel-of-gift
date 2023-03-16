@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Layout from '../components/Layout/Layout';
 import WheelPage from '../components/WheelPage/WheelPage';
 
@@ -10,6 +10,7 @@ const AppRoutes = () => {
                 <Route element={<Layout />}>
                     <Route path='/' element={<WheelPage />} />
                 </Route>
+                <Route path='*' element={<Navigate to='/' />} />                    
             </Routes>
         </BrowserRouter>
     );

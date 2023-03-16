@@ -49,7 +49,7 @@ const Navbar = () => {
 				footer={null}
                 title={<h5>Cài đặt</h5>}
             >
-                <Setting />
+                <Setting onCLoseModal={() => setShowSetting(false)} />
             </Modal>
             <Drawer
                 closable={false}

@@ -11,7 +11,7 @@ const WheelPage = () => {
 	const [isSpin, setIsSpin] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
 	const [prizeNumber, setPrizeNumber] = useState(0);
-	const { giftList, setGiftList } = useContext(Context);
+	const { giftList, setGiftList, duration } = useContext(Context);
 
 	const onSpin = () => {
 		setIsSpin(true);
@@ -72,7 +72,7 @@ const WheelPage = () => {
 					radiusLineColor='white'
 					textColors={['#ffffff']}
 					fontSize={15}
-					spinDuration={0.1}
+					spinDuration={duration/10}
 				/>
 				<button onClick={onSpin}>Quay</button>
 			</div>

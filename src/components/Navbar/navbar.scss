@@ -11,10 +11,11 @@ header {
     height: 25px;
 }
 .setting-btn {
-    margin: 20px 0;
+    margin: 10px 0;
     font-size: 1.25rem;
-    padding: 0;
-    background: transparent;
+    padding: 7px 12px;
+    border-radius: 4px;
+    background: rgb(201, 5, 5);
     color: white;
 }
 .toggle-btn {
@@ -78,7 +79,7 @@ header {
     }
 }
 .menu-title {
-    margin: 20px 0;
+    margin: 10px 0;
 }
 .modal-add {
     .ant-modal-content, .ant-modal-header {
