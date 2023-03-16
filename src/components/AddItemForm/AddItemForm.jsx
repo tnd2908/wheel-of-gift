@@ -1,25 +1,34 @@
-import { Form, Input } from 'antd';
-import React from 'react';
+import { Form, Input, InputNumber } from 'antd';
+import React, { useEffect } from 'react';
 
-const AddItemForm = () => {
+const AddItemForm = ({ selectedGift = null }) => {
+    const [form] = Form.useForm();
     const onFinish = (gift) => {
         console.log(gift);
     }
+    useEffect(() => {
+        if (selectedGift) {
+            form.setFieldsValue({ ...selectedGift })
+        }
+    }, [form, selectedGift]);
+
     return (
         <Form
             name="basic"
-            labelCol={{ span: 4 }}
-            wrapperCol={{ span: 12 }}
+            labelCol={{ span: 6 }}
+            wrapperCol={{ span: 18 }}
             initialValues={{ remember: true }}
             onFinish={onFinish}
             autoComplete="off"
+            className='add-form'
+            form={form}
         >
             <Form.Item
                 label="Tên quà tặng"
-                name="name"
+                name="option"
                 rules={[{ required: true, message: 'Vui lòng nhập tên quà tặng!' }]}
             >
-                <Input />
+                <Input size='large' placeholder='Tên quà tặng' />
             </Form.Item>
 
             <Form.Item
@@ -27,11 +36,11 @@ const AddItemForm = () => {
                 name="quantity"
                 rules={[{ required: true, message: 'Vui lòng nhập số lượng quà tặng!' }]}
             >
-                <Input.Number />
+                <InputNumber size='large' type='number' controls={false} placeholder={0} />
             </Form.Item>
 
-            <Form.Item wrapperCol={{ offset: 4, span: 12 }}>
-                <button>Xác nhận</button>
+            <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
+                <button className='submit-btn'>Xác nhận</button>
             </Form.Item>
         </Form>
     );

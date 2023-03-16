@@ -3,32 +3,33 @@
         margin-bottom: 20px;
     }
     & > * {
-        color: white;
+        color: black;
     }
-    width: 500px;
     padding: 20px;
-    background: rgb(0, 0, 0, 0.7);
+    padding-top: 50px;
     label {
         display: block;
         margin-bottom: 5px;
     }
-    input {
-        border: none;
-        background: #2b2929;
-        padding: 5px;
-        width: 100%;
-        color: silver;
-        padding-left: 12px;
-        &::placeholder {
-            font-size: 15px;
-            color: gray;
-        }
-        &:focus {
-            outline: none;
-        }
-    }
 }
-.form-item {
-    width: 100%;
-    margin-bottom: 20px;
+:where(.css-dev-only-do-not-override-pb7fjz).ant-form-item .ant-form-item-label >label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+    display: none;
+}
+:where(.css-dev-only-do-not-override-774ii7).ant-form-item .ant-form-item-label >label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+    display: none;
+}
+.submit-btn {
+    background-color: red;
+    color: white;
+    border-radius: 4px;
+    margin-top: 40px;
+}
+:where(.css-dev-only-do-not-override-ph9edi).ant-input-number-lg {
+    border-radius: 0;
+}
+
+:where(.css-dev-only-do-not-override-ph9edi).ant-input-number {
+    color: white;
+    border-radius: 0;
+
 }

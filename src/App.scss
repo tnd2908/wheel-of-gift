@@ -2,6 +2,11 @@
 .bg-dark {
   background-color: #222020 !important;
 }
+:where(.css-dev-only-do-not-override-1vl4nhu).ant-input-number-disabled {
+  background-color: #f6f6f6
+}
 @import './components/WheelPage/wheel.scss';
 @import './components/Navbar/navbar.scss';
 @import './components/AddItemForm/add-item-form.scss';
+@import './components/BulkEditForm/bulk-edit-form.scss';
+@import './components/Setting/setting.scss';

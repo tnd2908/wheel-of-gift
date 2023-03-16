@@ -1,39 +1,31 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Wheel } from 'react-custom-roulette';
-import { getRandomGift } from '../../ultils/random';
-import { getPrizeInfo, newPrizeList } from '../../ultils/prize';
-import { data, unluckyDraw } from '../../mock/data';
-import { Context } from '../../context/Context';
 import { Modal } from 'antd';
-import { UNLUCKY_TITLE, TITLE, UNLUCKY_MESSAGE } from '../../constant/message';
-import tom from '../../asset/tom.gif';
+import React, { useContext, useState } from 'react';
+import { Wheel } from 'react-custom-roulette';
+import { TITLE, UNLUCKY_MESSAGE, UNLUCKY_TITLE } from '../../constant/message';
+import { Context } from '../../context/Context';
+import { data } from '../../mock/data';
+import { getPrizeInfo, newPrizeList } from '../../ultils/gift';
+import { getRandomGift } from '../../ultils/random';
 
 const WheelPage = () => {
 	const [isSpin, setIsSpin] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
 	const [prizeNumber, setPrizeNumber] = useState(0);
-	const { prizeList, setPrizeList } = useContext(Context);
-
-	useEffect(() => {
-		setPrizeList([unluckyDraw, ...data])
-	}, [setPrizeList]);
+	const { giftList, setGiftList } = useContext(Context);
 
 	const onSpin = () => {
 		setIsSpin(true);
 		let prize = getRandomGift(data);
-		while (prizeList[prize].quantity === 0) {
+		while (giftList[prize].quantity === 0) {
 			prize = getRandomGift(data);
-			console.log('spin again')
 		}
 		setPrizeNumber(prize);
 	}
 
 	const onStop = () => {
 		setIsSpin(false);
-		if (prizeNumber === 0) {
-
-		} else {
-			setPrizeList(newPrizeList(prizeList, prizeNumber))
+		if (prizeNumber !== 0) {
+			setGiftList(newPrizeList(giftList, prizeNumber))
 		}
 		setIsVisible(true);
 	}
@@ -52,15 +44,28 @@ const WheelPage = () => {
 							<img className='meme' src={'https://ih1.redbubble.net/image.477575733.7090/st,small,507x507-pad,600x600,f8f8f8.u2.jpg'} alt="" />
 							<h3 className='unlucky-msg'> {UNLUCKY_MESSAGE} </h3>
 						</div>
-						: <h1 className='gift-name'>🎁 {getPrizeInfo(prizeList, prizeNumber).option} </h1>
+						: <h1 className='gift-name'>🎁 {getPrizeInfo(giftList, prizeNumber).option} </h1>
 					}
 				</Modal>
 				<Wheel
-					data={prizeList}
+					data={giftList}
 					prizeNumber={prizeNumber}
 					onStopSpinning={onStop}
 					mustStartSpinning={isSpin}
-					backgroundColors={['orange', 'red', 'tan', '#6ebd40', '#1890ff', '#722ed1', '#dbdf05']}
+					backgroundColors={[            
+						"#3f297e",
+						"#175fa9",
+						"#169ed8",
+						"#239b63",
+						"#64b031",
+						"#efe61f",
+						"#f7a416",
+						"#e6471d",
+						"#dc0936",
+						"#e5177b",
+						"#be1180",
+						"#871f7f"
+					]}
 					innerBorderColor='white'
 					innerBorderWidth={30}
 					outerBorderColor='white'

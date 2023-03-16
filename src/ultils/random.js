@@ -1,16 +1,19 @@
-const generateRandom = (min = 1, max = 8) => {
-    let difference = max - min;
-    let random = Math.random();
+import { getRatio } from "./setting";
 
-    random = Math.round(random * difference);
-    random = random + min;
+const generateRandom = (min = 1, max) => {
+	let difference = max - min;
+	let random = Math.random();
 
-    return random;
+	random = Math.floor(random * difference);
+	random = random + min;
+
+	return random;
 }
 
 export const getRandomGift = (giftList) => {
-  const num = Math.random();
-    if (num < 0.5) {
-      return 0;
-    } return generateRandom(1, giftList.length);
+	const num = Math.random();
+	const ratio = getRatio();
+	if (num < ratio / 100) {
+		return 0;
+	} return generateRandom(1, giftList.length);
 }

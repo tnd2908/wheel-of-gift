@@ -1,17 +1,23 @@
 import React, { createContext, useState } from "react";
-import { unluckyDraw } from "../mock/data";
+import { getGiftList } from "../ultils/gift";
+import { getRatio } from "../ultils/setting";
 
 export const Context = createContext({
-    prizeList: [unluckyDraw],
-    setPrizeList: (newList) => null
+    giftList: [],
+    setGiftList: (newList) => null,
+    ratio: 0.5,
+    setRatio: (percent) => null
 });
 
 export const ContextProvider = ({ children }) => {
-    const [prizeList, setPrizeList] = useState([unluckyDraw]);
+    const [giftList, setGiftList] = useState(getGiftList());
+    const [ratio, setRatio] = useState(getRatio());
 
     const value = {
-        prizeList,
-        setPrizeList,
+        giftList,
+        setGiftList,
+        ratio,
+        setRatio,
     }
     return (
         <Context.Provider value={value}>

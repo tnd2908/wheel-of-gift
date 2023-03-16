@@ -10,6 +10,13 @@ header {
 .logo {
     height: 25px;
 }
+.setting-btn {
+    margin: 20px 0;
+    font-size: 1.25rem;
+    padding: 0;
+    background: transparent;
+    color: white;
+}
 .toggle-btn {
     background: transparent;
     border: 0;
@@ -34,16 +41,52 @@ header {
 }
 .gift-item {
     background: #1c1919;
-    padding: 12px 20px;
+    padding: 0 20px;
+    line-height: 45px;
     margin-bottom: 10px;
+    width: 100%;
     border-radius: 4px;
     p {
         margin-bottom: 0;
+        font-size: 1rem;
         color: silver;
+    }
+}
+.action-list-btn {
+    padding: 0px 14px;
+    margin-left: 10px;
+    background-color: #1c1919;
+    color: white;
+    font-size: 12px;
+    height: 45px;
+}
+.action-container {
+    display: flex;
+    flex-direction: column;
+}
+.action-btn {
+    padding: 5px 10px;
+    font-size: 15px;
+    background: transparent;
+    color: white;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+    i {
+        margin-right: 12px;
+        font-size: 12px;
     }
 }
 .menu-title {
     margin: 20px 0;
+}
+.modal-add {
+    .ant-modal-content, .ant-modal-header {
+        background-color: #fff;
+        & > * {
+            color: black;
+        }
+    }
 }
 @media screen and (max-width: 768px) {
     .navbar {

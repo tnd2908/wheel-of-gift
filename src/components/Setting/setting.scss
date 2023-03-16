@@ -1,0 +1,22 @@
+.form-footer {
+    display: flex;
+    justify-content: flex-end;
+    button {
+        font-size: 15px;
+        border-radius: 0;
+        margin-top: 40px;
+    }
+}
+.btn-reset {
+    margin-right: 10px;
+    border: 1px solid gray;
+    color: gray;
+    background: white;
+    padding: 8px 15px;
+}
+.btn-save {
+    border: 1px solid red;
+    color: white;
+    background: red;
+    padding: 8px 18px;
+}
