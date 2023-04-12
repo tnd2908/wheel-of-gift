@@ -30,7 +30,7 @@ const ColorForm = ({onCloseModal}) => {
         >
             <div className="form-body">
                 <Form.List name="gifts">
-                    {(fields, { _, remove }) => (
+                    {(fields) => (
                         <>
                             {fields.map((field, i) => (
                                 <div key={'key' + field.name} className="flex flex-col">
@@ -71,11 +71,8 @@ const ColorForm = ({onCloseModal}) => {
                                                 },
                                             ]}
                                         >
-                                            <Input style={{ width: '50px', cursor: 'pointer' }} type='color' placeholder={0} />
+                                            <Input style={{ width: '100px', cursor: 'pointer' }} type='color' placeholder={0} />
                                         </Form.Item>
-                                        <button className='remove-btn' onClick={() => remove(field.name)}>
-                                            <i className="fas fa-trash-alt"></i>
-                                        </button>
                                     </div>
                                 </div>
                             ))}
