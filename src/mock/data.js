@@ -5,45 +5,66 @@ export const unluckyDraw = {
     quantity: 999,
     canEdit: false,
     canDelete: false,
+    count: 0,
+    background: '#504949',
+    color: '#ffffff'
 }
 
 export const data = [
     unluckyDraw,
     { 
         option: 'Nón', 
-        quantity: 5,
+        quantity: 1,
         canEdit: true,
         canDelete: true,
+        count: 0,
+        background: '#F93635',
+        color: '#000000'
     },
     { 
         option: 'Bút', 
-        quantity: 2,
+        quantity: 1,
         canEdit: true,
         canDelete: true,
+        count: 0,
+        background: '#FFFFFF',
+        color: '#000000'
     },
     { 
         option: 'Áo mưa', 
-        quantity: 7,
+        quantity: 1,
         canEdit: true,
         canDelete: true,
+        count: 0,
+        background: '#F93635',
+        color: '#000000'
     },
     { 
         option: 'Ly nước', 
-        quantity: 3,
+        quantity: 1,
         canEdit: true,
         canDelete: true,
+        count: 0,
+        background: '#ffffff',
+        color: '#000000'
     },
     { 
         option: 'iPhone 14', 
-        quantity: 2,
+        quantity: 1,
         canEdit: true,
         canDelete: true,
+        count: 0,
+        background: '#F93635',
+        color: '#000000'
     },
     {   
         option: 'Xe máy', 
         quantity: 1,
         canEdit: true,
         canDelete: true,
+        count: 0,
+        background: '#ffffff',
+        color: '#000000'
     },
 ];
 
@@ -58,5 +79,4 @@ export const ratioOptions = [
     { label: '70%', value: 70, key: 'ratio8' },
     { label: '80%', value: 80, key: 'ratio9' },
     { label: '90%', value: 90, key: 'ratio10' },
-    { label: '100%', value: 100, key: 'ratio' },
 ];

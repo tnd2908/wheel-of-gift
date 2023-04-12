@@ -1,4 +1,5 @@
 import { DEFAULT_MESSAGE } from "../constant/message";
+import bg from '../asset/bg.jpg';
 export const MAX_DURATION = 15;
 
 export const getMessage = () => {
@@ -46,4 +47,9 @@ export const getDuration = () => {
         localStorage.setItem('duration', '3');
         return 3;
     }
+}
+
+export const getBackground = () => {
+    const background = localStorage.getItem('background') || bg;
+    return background;
 }

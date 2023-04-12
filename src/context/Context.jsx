@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
 import { getGiftList } from "../ultils/gift";
-import { getDuration, getRatio } from "../ultils/setting";
+import { getBackground, getDuration, getRatio } from "../ultils/setting";
 
 export const Context = createContext({
     giftList: [],
@@ -9,13 +9,15 @@ export const Context = createContext({
     setRatio: (percent) => null,
     duration: 0.1,
     setDuration: (duration) => null,
+    background: '',
+    setBackground: (img) => null
 });
 
 export const ContextProvider = ({ children }) => {
     const [giftList, setGiftList] = useState(getGiftList());
     const [ratio, setRatio] = useState(getRatio());
     const [duration, setDuration] = useState(getDuration());
-
+    const [background, setBackground] = useState(getBackground());
     const value = {
         giftList,
         setGiftList,
@@ -23,6 +25,8 @@ export const ContextProvider = ({ children }) => {
         setRatio,
         duration,
         setDuration,
+        background,
+        setBackground,
     }
     return (
         <Context.Provider value={value}>

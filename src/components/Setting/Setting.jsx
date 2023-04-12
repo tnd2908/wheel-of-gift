@@ -40,7 +40,6 @@ const Setting = ({ onCLoseModal }) => {
         form.setFieldValue('ratio', ratio);
         form.setFieldValue('duration', duration);
     }, [form, ratio, duration]);
-    console.log(11);
     return (
         <Form
             name="basic"

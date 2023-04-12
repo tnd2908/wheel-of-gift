@@ -17,3 +17,11 @@ export const getRandomGift = (giftList) => {
 		return 0;
 	} return generateRandom(1, giftList.length);
 }
+
+export const countingList = (giftList) => {
+	const result = {};
+	giftList.forEach(e => {
+		result[e.option] = 0;
+	})
+	return result;
+}

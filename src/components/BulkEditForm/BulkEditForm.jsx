@@ -72,7 +72,7 @@ const BulkEditForm = ({ giftList, onCloseModal, isVisible }) => {
 															},
 														]}
 													>
-														<Input disabled={hasPermission(field.name)} placeholder='Nhật tên quà tặng' />
+														<Input disabled={hasPermission(field.name)} placeholder='Nhập tên quà tặng' />
 													</Form.Item>
 												)}
 											</Form.Item>

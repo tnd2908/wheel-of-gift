@@ -3,9 +3,7 @@ import React, { useEffect } from 'react';
 
 const AddItemForm = ({ selectedGift = null }) => {
     const [form] = Form.useForm();
-    const onFinish = (gift) => {
-        console.log(gift);
-    }
+
     useEffect(() => {
         if (selectedGift) {
             form.setFieldsValue({ ...selectedGift })
@@ -18,7 +16,6 @@ const AddItemForm = ({ selectedGift = null }) => {
             labelCol={{ span: 6 }}
             wrapperCol={{ span: 18 }}
             initialValues={{ remember: true }}
-            onFinish={onFinish}
             autoComplete="off"
             className='add-form'
             form={form}

@@ -1,9 +1,11 @@
-import { Drawer, Modal, Popover } from 'antd';
+import { Drawer, Modal, Popover, Tabs } from 'antd';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../../context/Context';
 import { giftListAfterDelete } from '../../ultils/gift';
+import BackgroundForm from '../BackgroundForm/BackgroundForm';
 import BulkEditForm from '../BulkEditForm/BulkEditForm';
+import ColorForm from '../ColorForm/ColorForm';
 import Setting from '../Setting/Setting';
 
 
@@ -13,12 +15,10 @@ const Navbar = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [showSetting, setShowSetting] = useState(false);
 
-    const onEdit = (gift) => {
-        console.log(gift);
+    const onEdit = () => {
         setIsVisible(true);
     }
     const onDelete = (name) => {
-        console.log(name);
         Modal.confirm({
             title: 'Xác nhận',
             content: 'Bạn có chắc muốn xoá ', name,
@@ -27,7 +27,23 @@ const Navbar = () => {
             }
         });
     }
-
+    const items = [
+        {
+          key: '1',
+          label: `Cấu hình`,
+          children: <Setting onCLoseModal={() => setShowSetting(false)} />,
+        },
+        {
+          key: '2',
+          label: `Màu sắc`,
+          children: <ColorForm onCloseModal={() => setShowSetting(false)} />,
+        },
+        {
+            key: '3',
+            label: `Hình nền`,
+            children: <BackgroundForm onCloseModal={() => setShowSetting(false)} />,
+          },
+      ];
     return (
         <>
             <header className='bg-dark'>
@@ -47,9 +63,11 @@ const Navbar = () => {
                 open={showSetting}
 				onCancel={() => setShowSetting(false)}
 				footer={null}
+                // centered
                 title={<h5>Cài đặt</h5>}
             >
-                <Setting onCLoseModal={() => setShowSetting(false)} />
+                <Tabs defaultActiveKey="1" items={items} />
+
             </Modal>
             <Drawer
                 closable={false}

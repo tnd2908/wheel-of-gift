@@ -18,10 +18,30 @@ export const bulkEditGiftList = (newList) => {
 
 export const newPrizeList = (list, prizeNumber) => {
     const newList = list.map((element, index) => {
-        if (index === prizeNumber) {
-            return { ...element, quantity: element.quantity - 1 }
-        } return { ...element }
+        if (index === prizeNumber && index !== 0) {
+            return { ...element, quantity: element.quantity - 1, count: element?.count + 1 || 1 }
+        }
+        if (index === prizeNumber && index === 0) {
+            return { ...element, count: element?.count + 1 || 1 };
+        }
+        return { ...element }
     });
+    bulkEditGiftList(newList);
+    return newList;
+}
+
+export const updatePrizeListCount = (list) => {
+    const newList = list.map((e, i) => {
+        if (i === 0) {
+            return { ...e, count: e.count + 1 };
+        } else return { ...e };
+    })
+    bulkEditGiftList(newList);
+    return newList;
+}
+
+export const resetListCount = (list) => {
+    const newList = list.map(e => ({ ...e, count: 0 }));
     bulkEditGiftList(newList);
     return newList;
 }
@@ -29,7 +49,7 @@ export const newPrizeList = (list, prizeNumber) => {
 export const getGiftList = () => {
     try {
         const list = JSON.parse(localStorage.getItem('giftList'));
-        if (list && typeof list === 'object' && list.length && list.every(e => e.option)) {
+        if (list && typeof list === 'object' && list.length && list.every(e => e.option && e.count !== undefined && e.background !== undefined && e.color !== undefined)) {
             return [...list];
         } else {
             bulkEditGiftList([...data])
