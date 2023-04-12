@@ -54,7 +54,7 @@ const Setting = ({ onCLoseModal }) => {
             <Form.Item
                 label="Tỉ lệ không ra quà"
                 name="ratio"
-                rules={[{ required: true, message: 'Vui lòng tỉ lệ' }]}
+                rules={[{ required: true, message: 'Vui lòng nhập tỉ lệ' }]}
             >
                 <Select options={ratioOptions} />
             </Form.Item>
@@ -78,7 +78,13 @@ const Setting = ({ onCLoseModal }) => {
             >
                 <InputNumber type='number' controls={false} placeholder={0} />
             </Form.Item>
-
+            <Form.Item
+                label="Số lần lập lại quà"
+                name="repeat"
+                rules={[{ required: true, message: 'Vui lòng nhập số lần' }]}
+            >
+                <InputNumber type='number' controls={false} placeholder={3} disabled />
+            </Form.Item>
             <Form.Item
                 label="Quick edit mode"
                 name="isMultipleMode"

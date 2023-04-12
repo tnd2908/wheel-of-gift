@@ -42,6 +42,7 @@ const Navbar = () => {
             key: '3',
             label: `Hình nền`,
             children: <BackgroundForm onCloseModal={() => setShowSetting(false)} />,
+            disabled: true
           },
       ];
     return (
