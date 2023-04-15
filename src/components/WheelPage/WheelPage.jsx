@@ -87,7 +87,7 @@ const WheelPage = () => {
 				fontSize={15}
 				spinDuration={duration / 10}
 			/>
-			<button onClick={onSpin}>Quay</button>
+			<button onClick={onSpin}>Spin</button>
 			{isLoading && (<div className="loading">
 				<LoadingOutlined className='load-icon' />
 			</div>)}

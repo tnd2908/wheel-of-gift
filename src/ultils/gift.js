@@ -1,4 +1,4 @@
-import { data } from "../mock/data";
+import { data, unluckyDraw } from "../mock/data";
 
 export const filterList = (list) => {
     return list.map((e, i) => {
@@ -49,8 +49,18 @@ export const resetListCount = (list) => {
 export const getGiftList = () => {
     try {
         const list = JSON.parse(localStorage.getItem('giftList'));
-        if (list && typeof list === 'object' && list.length && list.every(e => e.option && e.count !== undefined && e.background !== undefined && e.color !== undefined)) {
-            return [...list];
+        if (list && typeof list === 'object' 
+            && list.length 
+            && list.every(e => e.option 
+                && e.count !== undefined 
+                && e.background !== undefined 
+                && e.color !== undefined)) {
+            if (list[0]?.option === unluckyDraw.option)
+                return [...list];
+            else {
+                bulkEditGiftList([...data])
+                return [...data];
+            }
         } else {
             bulkEditGiftList([...data])
             return [...data];
