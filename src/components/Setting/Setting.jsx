@@ -81,7 +81,7 @@ const Setting = ({ onCLoseModal }) => {
             <Form.Item
                 label="Số lần lập lại quà"
                 name="repeat"
-                rules={[{ required: true, message: 'Vui lòng nhập số lần' }]}
+                rules={[{ required: false, message: 'Vui lòng nhập số lần' }]}
             >
                 <InputNumber type='number' controls={false} placeholder={3} disabled />
             </Form.Item>
